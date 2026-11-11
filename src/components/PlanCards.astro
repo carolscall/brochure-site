@@ -1,0 +1,18 @@
+---
+import { familyPlans, showAnnual, annualNote } from '../data/pricing';
+import { site } from '../site.config';
+---
+<div class="plans">
+  {familyPlans.map((p) => (
+    <article class={`plan${p.featured ? ' featured' : ''}`} aria-labelledby={`plan-${p.code}`}>
+      {p.featured && <span class="ribbon">Recommended</span>}
+      <h3 id={`plan-${p.code}`}>{p.name}</h3>
+      <p class="muted">{p.blurb}</p>
+      <div class="price">${p.price}<small> /month</small></div>
+      <div class="meta">{p.cadence} · {p.callLength}</div>
+      <ul class="checks">{p.features.map((f) => <li>{f}</li>)}</ul>
+      <a class={`btn${p.featured ? '' : ' ghost'}`} href={`${site.signupUrl}?plan=${p.code}`}>Choose {p.name}</a>
+    </article>
+  ))}
+</div>
+{showAnnual && <p class="center muted" style="margin-top:20px">{annualNote}</p>}

@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../site.config';
+---
+<Base title="Contact">
+  <section class="hero">
+    <div class="wrap" style="display:block">
+      <h1>Talk to us</h1>
+      <p class="lead">We read every message and usually reply within one business day.</p>
+    </div>
+  </section>
+  <section class="alt" style="padding-top:40px">
+    <div class="wrap grid three">
+      <div class="card"><Icon name="heart" /><h3>Families</h3><p>Questions about plans, calls or your account.</p><a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></div>
+      <div class="card"><Icon name="building" /><h3>Care providers</h3><p>Demos, pilots and pricing for agencies and assisted living.</p><a href={`mailto:${site.salesEmail}`}>{site.salesEmail}</a></div>
+      <div class="card"><Icon name="handshake" /><h3>Partners</h3><p>Reselling check-in calls to your customers.</p><a href={`mailto:${site.partnersEmail}`}>{site.partnersEmail}</a></div>
+    </div>
+    <div class="wrap" style="margin-top:32px">
+      <p class="note">Please don't email health details. If someone needs help right now, call 911.</p>
+    </div>
+  </section>
+</Base>

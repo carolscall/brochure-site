@@ -1,0 +1,19 @@
+---
+interface Props { name: 'phone' | 'heart' | 'bell' | 'chat' | 'calendar' | 'shield' | 'users' | 'chart' | 'note' | 'building' | 'handshake' | 'clock' }
+const { name } = Astro.props;
+const paths: Record<Props['name'], string> = {
+  phone: 'M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z',
+  heart: 'M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z',
+  bell: 'M12 22a2.5 2.5 0 0 0 2.4-2h-4.8a2.5 2.5 0 0 0 2.4 2zm7-6V11a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2z',
+  chat: 'M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2z',
+  calendar: 'M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm-2 8h14v10H5V10z',
+  shield: 'M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3z',
+  users: 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 13c-3.3 0-7 1.7-7 4v3h14v-3c0-2.3-3.7-4-7-4zm8 0c-.5 0-1 0-1.6.1 1 .8 1.6 1.8 1.6 2.9v4h5v-3c0-2.3-2.7-4-5-4z',
+  chart: 'M4 20V10h3v10H4zm6 0V4h3v16h-3zm6 0v-7h3v7h-3z',
+  note: 'M5 3h10l4 4v14H5V3zm9 1.5V8h3.5L14 4.5zM8 12h8v1.5H8V12zm0 3.5h8V17H8v-1.5z',
+  building: 'M4 21V5l8-3 8 3v16h-6v-5h-4v5H4zm4-12h2V7H8v2zm6 0h2V7h-2v2zm-6 4h2v-2H8v2zm6 0h2v-2h-2v2z',
+  handshake: 'M2 11l4-4 4 2 3-2 4 1 5 3-3 3-2-1-4 4a1.5 1.5 0 0 1-2 0l-.5-.5-.5.5a1.5 1.5 0 0 1-2 0L5 14l-3-3z',
+  clock: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.4l4 2.4-.8 1.3L11 13V7h2z',
+};
+---
+<span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d={paths[name]} fill="currentColor" /></svg></span>

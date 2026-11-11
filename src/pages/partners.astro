@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../site.config';
+const apply = `mailto:${site.partnersEmail}?subject=${encodeURIComponent(`${site.name} partner program`)}`;
+---
+<Base title="Partner program" description="Resell check-in calls to your customers at your own prices. Medical-alarm companies, home-care franchises and senior-service providers.">
+  <section class="hero">
+    <div class="wrap" style="grid-template-columns:1fr">
+      <div>
+        <span class="kicker">For medical-alarm companies, franchises and senior-service providers</span>
+        <h1>Add check-in calls to what you already sell.</h1>
+        <p class="lead">
+          Your customers already trust you with their safety. Offer them a friendly call on a regular schedule as well,
+          under your relationship and at your prices. We run the calls, alerts and billing.
+        </p>
+        <div class="actions"><a class="btn" href={apply}>Become a partner</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap grid three">
+      <div class="card"><Icon name="chart" /><h3>Your prices, your margin</h3><p>Set your markup per plan, as a dollar amount or a percentage. Your customers see your price, and you see your margin each month.</p></div>
+      <div class="card"><Icon name="users" /><h3>Sell through your own network</h3><p>Add dealers or regional offices under you, each with its own markup, as many levels deep as you need.</p></div>
+      <div class="card"><Icon name="handshake" /><h3>Onboard in one step</h3><p>Add a family or a facility in under a minute, or share your own signup link and approve new enrollments.</p></div>
+      <div class="card"><Icon name="shield" /><h3>No health data on your desk</h3><p>Partners see accounts, counts and invoices. Names, notes and call details stay with the family or facility.</p></div>
+      <div class="card"><Icon name="note" /><h3>Billing handled</h3><p>Monthly invoices at every level, prorated by days enrolled. Your customers' invoices come from you.</p></div>
+      <div class="card"><Icon name="phone" /><h3>Pairs with alarms</h3><p>Check-in calls catch the slow problems an alarm button misses: low food, loneliness, a sore knee that got worse.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap center">
+      <h2>Interested?</h2>
+      <p class="lead">Tell us about your customers and how you sell today. We'll set up a partner account and walk your team through it.</p>
+      <div class="actions"><a class="btn" href={apply}>Email {site.partnersEmail}</a></div>
+    </div>
+  </section>
+</Base>

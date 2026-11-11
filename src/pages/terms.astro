@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+// DRAFT: have counsel review before launch (see README).
+---
+<Base title="Terms">
+  <section>
+    <div class="wrap prose">
+      <h1>Terms of service</h1>
+      <p class="muted">Draft. Last updated before launch.</p>
+      <h2>What {site.name} is</h2>
+      <p>{site.name} places automated, friendly check-in phone calls and sends alerts and summaries to the people you choose. It is not a medical, monitoring or emergency service, it does not give medical advice, and it is not a substitute for care from qualified professionals. In an emergency, call 911.</p>
+      <h2>Consent</h2>
+      <p>You may only enroll a person who has agreed to receive automated check-in calls. Tell us right away if that changes and we'll stop calling.</p>
+      <h2>Billing</h2>
+      <p>Plans are billed monthly and prorated by the days each person is enrolled. You can change plans or cancel at any time.</p>
+      <h2>Contact</h2>
+      <p><a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></p>
+    </div>
+  </section>
+</Base>

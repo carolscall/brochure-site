@@ -1,0 +1,14 @@
+---
+import { site } from '../site.config';
+---
+<figure class="call-card" aria-label="Example of a check-in call">
+  <div class="head"><span class="dot" aria-hidden="true"></span> Tuesday, 10:05 am · Check-in call</div>
+  <p class="bubble agent"><b>{site.name}</b>Good morning, Margaret! It's {site.name} checking in. How have you been since Friday?</p>
+  <p class="bubble person"><b>Margaret</b>Oh, not bad. My knee's been acting up, so I haven't made it to the store.</p>
+  <p class="bubble agent"><b>{site.name}</b>I'm sorry to hear that. Are you running low on anything?</p>
+  <p class="bubble person"><b>Margaret</b>Milk and bread, mostly. And did Susan say she's coming Sunday?</p>
+  <div class="alert-chip" role="note">
+    <strong>Alert to family:</strong>&nbsp;Margaret O. mentioned knee pain and needs groceries (milk, bread).
+  </div>
+  <figcaption class="muted" style="margin-top:12px;font-size:.95rem">An illustration of a typical call. Real calls follow each person's pace.</figcaption>
+</figure>

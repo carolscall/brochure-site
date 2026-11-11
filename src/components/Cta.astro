@@ -1,0 +1,17 @@
+---
+import { site } from '../site.config';
+interface Props { title?: string; text?: string }
+const { title = 'Start the calls this week', text = 'Sign up online in a few minutes. Choose the plan and the times that suit them; you can change either at any time.' } = Astro.props;
+---
+<section>
+  <div class="wrap">
+    <div class="band center">
+      <h2>{title}</h2>
+      <p class="lead" style="color:inherit;opacity:.95">{text}</p>
+      <div class="actions">
+        <a class="btn" href={`${site.signupUrl}?plan=plus`}>Get started</a>
+        <a class="btn ghost" href="/contact/">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>

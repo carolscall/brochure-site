@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import CallCard from '../components/CallCard.astro';
+import PlanCards from '../components/PlanCards.astro';
+import Cta from '../components/Cta.astro';
+import { site } from '../site.config';
+---
+<Base>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Check-in calls for older adults</span>
+        <h1>A warm hello on the phone, and peace of mind for you.</h1>
+        <p class="lead">
+          {site.name} calls your mom, dad or grandparent on a regular schedule for a friendly, unhurried chat. If they
+          mention a fall, pain, a missed meal or anything they need, we text or email you right away.
+        </p>
+        <div class="actions">
+          <a class="btn" href={`${site.signupUrl}?plan=plus`}>Get started</a>
+          <a class="btn ghost" href="#how">How it works</a>
+        </div>
+        <p class="muted" style="margin-top:16px">From $19 a month. No equipment, no app: any phone works.</p>
+      </div>
+      <CallCard />
+    </div>
+  </section>
+
+  <section class="alt" id="how">
+    <div class="wrap">
+      <div class="center">
+        <h2>How it works</h2>
+        <p class="lead">Set it up once in a few minutes. After that the calls just happen.</p>
+      </div>
+      <div class="grid three" style="margin-top:40px">
+        <div class="card">
+          <Icon name="calendar" />
+          <div class="step-num" style="margin-top:16px">Step 1</div>
+          <h3>Tell us about them</h3>
+          <p>Their phone number, the best time to call, and a little about their life: hobbies, family, things to avoid.</p>
+        </div>
+        <div class="card">
+          <Icon name="phone" />
+          <div class="step-num" style="margin-top:16px">Step 2</div>
+          <h3>We call and chat</h3>
+          <p>A friendly voice asks how they are, how they slept and ate, and whether they need anything, then just talks for a while.</p>
+        </div>
+        <div class="card">
+          <Icon name="bell" />
+          <div class="step-num" style="margin-top:16px">Step 3</div>
+          <h3>You hear what matters</h3>
+          <p>After every call you can read a short summary. If something needs attention, or they miss calls, we alert you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid two" style="align-items:center">
+      <div>
+        <h2>Company for them. A heads-up for you.</h2>
+        <p class="lead">Many older adults live alone, and a quick daily call is hard to keep up when you're juggling work and kids.</p>
+        <ul class="checks">
+          <li><strong>Personal, not scripted.</strong> We remember their grandkids' names, their garden and their favorite team, from what you tell us.</li>
+          <li><strong>Patient and kind.</strong> Calls go at their pace. We never test their memory or rush them.</li>
+          <li><strong>Alerts that mean something.</strong> Only when they mention a need, ask for a person, or miss calls in a row.</li>
+          <li><strong>Their privacy respected.</strong> Alerts carry only a first name and a link; details stay behind your sign-in.</li>
+        </ul>
+      </div>
+      <div class="grid two">
+        <div class="card"><Icon name="heart" /><h3>Less lonely</h3><p class="muted">A voice to look forward to on the days you choose.</p></div>
+        <div class="card"><Icon name="clock" /><h3>Earlier warnings</h3><p class="muted">Hear about a fall or an empty fridge the same day, not next week.</p></div>
+        <div class="card"><Icon name="users" /><h3>The whole family</h3><p class="muted">Share alerts with siblings so nobody carries it alone.</p></div>
+        <div class="card"><Icon name="note" /><h3>A running record</h3><p class="muted">Mood and needs over time, call by call.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="center">
+        <h2>Simple monthly plans</h2>
+        <p class="lead">No contracts and no equipment. Each extra person in the same home is half price.</p>
+      </div>
+      <div style="margin-top:48px"><PlanCards /></div>
+      <p class="center" style="margin-top:28px">Running a home-care agency or assisted living? <a href="/organizations/">See care provider pricing</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid two">
+      <div class="card">
+        <Icon name="building" />
+        <h3>For home-care agencies and assisted living</h3>
+        <p>Check in on every client or resident between visits. Staff see who needs help first, and each check-in is written up for your records.</p>
+        <a href="/organizations/">Care providers →</a>
+      </div>
+      <div class="card">
+        <Icon name="handshake" />
+        <h3>For medical-alarm companies and resellers</h3>
+        <p>Offer check-in calls to your customers at your own prices. You see billing and counts, never personal health details.</p>
+        <a href="/partners/">Partner program →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="note">
+        <strong>Important:</strong> {site.name} is a friendly check-in service, not an emergency or medical alert service.
+        If someone describes an emergency on a call, we tell them to hang up and call 911. For round-the-clock emergency
+        help, pair us with a medical alert device.
+      </p>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

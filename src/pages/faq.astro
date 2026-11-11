@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { site } from '../site.config';
+import { householdDiscountPct } from '../data/pricing';
+
+const faqs: Array<[string, string]> = [
+  ['Is it a real person calling?',
+    `No. ${site.name} uses a friendly automated voice that is designed to be patient and warm. If someone asks, it says it's the ${site.name} check-in service. If they ask for a person, the call ends politely and the family or care team is alerted.`],
+  ['What happens if they say they need help?',
+    'The call notes it, and the people you chose get a text or email alert with a link to the call summary. In an emergency, the caller is told to hang up and call 911.'],
+  ['Is this a medical alert or emergency service?',
+    `No. ${site.name} is a check-in and companionship service. It doesn't monitor anyone around the clock or dispatch help, and it doesn't give medical advice. Many families use it alongside a medical alert device.`],
+  ['What if they miss a call?',
+    'If several calls in a row go unanswered, we alert you so someone can check on them.'],
+  ['Do they need a smartphone or an app?',
+    'No. Any landline or mobile phone works. You manage everything from a web page on your phone or computer.'],
+  ['Can I choose when the calls happen?',
+    'Yes. Choose the days and a time window, for example weekdays between 10 and noon. Your plan sets how many calls a week are included.'],
+  ['Who sees the conversations?',
+    'Only the people you give access to: you, family members you add, or the care staff assigned to them. Alerts carry only a first name and last initial with a link; the details stay behind a sign-in.'],
+  ['Do I need their permission?',
+    'Yes. We only call people who have agreed to receive automated check-in calls, and we ask you to confirm that when you enroll.'],
+  ['Can I enroll two people in the same home?',
+    `Yes. Each additional person in the same household is ${householdDiscountPct}% off.`],
+  ['Can I change plans or cancel?',
+    'Yes, any time. Charges are prorated by the days each person was enrolled.'],
+];
+---
+<Base title="Questions and answers">
+  <section class="hero">
+    <div class="wrap" style="display:block">
+      <h1>Questions and answers</h1>
+      <p class="lead">Can't find what you're looking for? <a href="/contact/">Contact us</a>.</p>
+    </div>
+  </section>
+  <section class="alt" style="padding-top:40px">
+    <div class="wrap faq" style="max-width:860px">
+      {faqs.map(([q, a]) => (
+        <details>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+  <Cta />
+</Base>

@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import PlanCards from '../components/PlanCards.astro';
+import Cta from '../components/Cta.astro';
+import { agencyTiers, orgPricing, householdDiscountPct } from '../data/pricing';
+---
+<Base title="Pricing" description="Family plans from $19 a month. Care provider pricing from $24 per client per month.">
+  <section class="hero">
+    <div class="wrap center" style="display:block">
+      <h1>Pricing</h1>
+      <p class="lead">Simple monthly prices, with no contracts and no per-minute charges.</p>
+    </div>
+  </section>
+
+  <section class="alt" style="padding-top:56px">
+    <div class="wrap">
+      <h2 class="center">For families</h2>
+      <div style="margin-top:40px"><PlanCards /></div>
+      <p class="center" style="margin-top:24px">Each additional person in the same home is {householdDiscountPct}% off.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="center">For care providers</h2>
+      <p class="lead center">Per client, per month. The base plan includes {orgPricing.baseCadence}.</p>
+      <div class="table-wrap" style="max-width:760px;margin:32px auto 0">
+        <table class="price-table">
+          <thead><tr><th>Plan</th><th class="num">Price</th></tr></thead>
+          <tbody>
+            {agencyTiers.map((t) => <tr><td>Agencies, {t.label}</td><td class="num">${t.price}</td></tr>)}
+            <tr><td>Five calls a week instead of two</td><td class="num">+${orgPricing.fivePerWeekAddOn}</td></tr>
+            <tr><td>{orgPricing.assistedLiving.label}</td><td class="num">${orgPricing.assistedLiving.price}</td></tr>
+            <tr><td>Site fee, per location</td><td class="num">${orgPricing.siteFee}/mo</td></tr>
+            <tr><td>Implementation (waived at {orgPricing.implementationWaivedAt}+ clients)</td><td class="num">${orgPricing.implementationFee.toLocaleString('en-US')} once</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="center" style="margin-top:24px"><a href="/organizations/">More about care provider features →</a></p>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

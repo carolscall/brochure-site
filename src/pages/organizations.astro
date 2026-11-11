@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { agencyTiers, orgPricing } from '../data/pricing';
+import { site } from '../site.config';
+const demo = `mailto:${site.salesEmail}?subject=${encodeURIComponent(`${site.name} demo for our organization`)}`;
+---
+<Base title="For care providers" description="Check-in calls for home-care agencies and assisted living: every client called between visits, needs flagged for staff, and a written record of every check-in.">
+  <section class="hero">
+    <div class="wrap" style="grid-template-columns:1fr">
+      <div>
+        <span class="kicker">Home-care agencies · Assisted living · Care management</span>
+        <h1>Check in on every client between visits.</h1>
+        <p class="lead">
+          {site.name} calls your clients or residents on the schedule you set, flags anyone who mentions a need, and
+          keeps a summary of every call. Your staff spend their time on the people who need it today.
+        </p>
+        <div class="actions">
+          <a class="btn" href={demo}>Request a demo</a>
+          <a class="btn ghost" href="#pricing">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap grid three">
+      <div class="card"><Icon name="chart" /><h3>Needs-help dashboard</h3><p>Everyone who mentioned a fall, pain, low food or loneliness, sorted to the top, with the call summary and transcript.</p></div>
+      <div class="card"><Icon name="users" /><h3>Roles for your team</h3><p>Admins, billing staff, and aides who see only the clients or halls assigned to them.</p></div>
+      <div class="card"><Icon name="bell" /><h3>Alerts to the right desk</h3><p>Default alert contacts for the organization (a nurse station, an on-call phone), with per-client overrides.</p></div>
+      <div class="card"><Icon name="note" /><h3>Care notes in every call</h3><p>Hearing, memory, topics to avoid, family names: staff notes shape the conversation.</p></div>
+      <div class="card"><Icon name="calendar" /><h3>Your schedule</h3><p>Choose call days and time windows per person. Missed calls in a row are flagged.</p></div>
+      <div class="card"><Icon name="shield" /><h3>Records you can use</h3><p>A dated summary of each check-in that may support your care-coordination and welfare-check documentation.</p></div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <h2>Pricing per client, per month</h2>
+      <p class="lead">One flat price per person, with no per-minute charges. The base plan includes {orgPricing.baseCadence}.</p>
+      <div class="grid two" style="margin-top:32px;align-items:start">
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead><tr><th>Agencies and care management</th><th class="num">Per client</th></tr></thead>
+            <tbody>
+              {agencyTiers.map((t) => <tr><td>{t.label}</td><td class="num">${t.price}</td></tr>)}
+              <tr><td>Five calls a week instead of two</td><td class="num">+${orgPricing.fivePerWeekAddOn}</td></tr>
+              <tr><td>{orgPricing.assistedLiving.label}</td><td class="num">${orgPricing.assistedLiving.price}</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Also included</h3>
+          <ul class="checks">
+            <li>Admin console for your team, with roles and assignments</li>
+            <li>Family members can get alerts too, if you choose</li>
+            <li>Monthly invoice that lists each client and the days they were enrolled</li>
+          </ul>
+          <p style="margin-top:20px"><strong>Site fee:</strong> ${orgPricing.siteFee}/month per location.<br />
+            <strong>Setup:</strong> ${orgPricing.implementationFee.toLocaleString('en-US')} one-time implementation, waived at {orgPricing.implementationWaivedAt}+ clients.</p>
+          <p class="muted">Pilot programs available. Ask us.</p>
+          <a class="btn" href={demo}>Request a demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="note">
+        {site.name} does not replace clinical judgment, nursing visits or an emergency response system. Callers who
+        describe an emergency are told to call 911, and your alert contacts are notified.
+      </p>
+    </div>
+  </section>
+</Base>
